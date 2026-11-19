@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduSphere | Smart Learning</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary:#3867e8;
+  --secondary:#7559e8;
+  --bg:#f5f7ff;
+  --card:#ffffff;
+  --text:#202b45;
+  --muted:#77839b;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:'Hind Siliguri',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header {
+  background:white;
+  padding:15px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 20px #00000008;
+}
+
+.logo {
+  font-family:Poppins,sans-serif;
+  font-size:24px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+nav {
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+nav a {
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  font-size:15px;
+}
+
+nav a:hover {color:var(--primary);}
+
+button {
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.btn {
+  background:var(--primary);
+  color:white;
+  padding:11px 23px;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:600;
+}
+
+.hero {
+  padding:90px 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  background:linear-gradient(120deg,#e9efff,#f5f0ff);
+}
+
+.hero-content {max-width:570px;}
+
+.hero h1 {
+  font-size:48px;
+  line-height:1.3;
+  margin-bottom:20px;
+}
+
+.hero h1 span {color:var(--primary);}
+
+.hero p {
+  font-size:18px;
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:25px;
+}
+
+.hero img {
+  width:43%;
+  max-width:480px;
+  border-radius:25px;
+}
+
+section {padding:65px 8%;}
+
+.section-title {
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title h2 {
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.section-title p {color:var(--muted);}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:-30px;
+  position:relative;
+}
+
+.stat {
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 5px 25px #00000008;
+}
+
+.stat h2 {color:var(--primary);font-size:30px;}
+.stat p {color:var(--muted);}
+
+.courses {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.course {
+  background:var(--card);
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 5px 25px #00000008;
+  transition:.3s;
+}
+
+.course:hover {
+  transform:translateY(-7px);
+  box-shadow:0 12px 30px #3867e820;
+}
+
+.course .emoji {font-size:38px;}
+.course h3 {margin:15px 0 8px;font-size:21px;}
+.course p {color:var(--muted);line-height:1.7;}
+
+.course button {
+  margin-top:18px;
+  background:#edf1ff;
+  color:var(--primary);
+  padding:9px 18px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.features {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.feature {
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.feature div {font-size:38px;}
+.feature h3 {margin:12px 0;}
+.feature p {color:var(--muted);line-height:1.7;}
+
+.quiz-box {
+  max-width:650px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 5px 30px #0000000a;
+}
+
+.quiz-box h3 {margin-bottom:20px;}
+
+.option {
+  display:block;
+  padding:13px;
+  margin:12px 0;
+  background:#f3f5ff;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.option:hover {background:#e5ebff;}
+
+#result {
+  margin-top:20px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+.library {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.book {
+  background:white;
+  padding:25px;
+  border-radius:14px;
+}
+
+.book h3 {margin-bottom:10px;}
+.book p {color:var(--muted);}
+
+.book a {
+  display:inline-block;
+  margin-top:15px;
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.contact {
+  background:linear-gradient(120deg,#3867e8,#7559e8);
+  color:white;
+  text-align:center;
+  border-radius:20px;
+  padding:55px 20px;
+}
+
+.contact p {margin:15px 0 22px;}
+
+footer {
+  text-align:center;
+  padding:25px;
+  color:var(--muted);
+  background:white;
+}
+
+.menu-btn {display:none;background:none;font-size:25px;}
+
+@media(max-width:800px) {
+  nav {
+    display:none;
+    position:absolute;
+    top:65px;
+    left:0;
+    width:100%;
+    background:white;
+    padding:20px;
+    flex-direction:column;
+  }
+
+  nav.show {display:flex;}
+  .menu-btn {display:block;}
+  .hero {flex-direction:column;text-align:center;padding:60px 7%;}
+  .hero h1 {font-size:35px;}
+  .hero img {width:100%;}
+  .stats {grid-template-columns:repeat(2,1fr);margin-top:0;padding:25px 7%;}
+  .courses,.features,.library {grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">EduSphere.</div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="navbar">
+    <a href="#home">হোম</a>
+    <a href="#courses">বিষয়সমূহ</a>
+    <a href="#features">সুবিধাসমূহ</a>
+    <a href="#quiz">কুইজ</a>
+    <a href="#library">লাইব্রেরি</a>
+    <a href="#contact">যোগাযোগ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+  <div class="hero-content">
+    <h1>শেখার নতুন জগতে<br><span>তোমাকে স্বাগতম!</span></h1>
+
+    <p>
+      জ্ঞান অর্জনের যাত্রাকে আরও সহজ, সুন্দর
+      ও আনন্দময় করতে EduSphere তোমার পাশে।
+      শেখো নিজের গতিতে, গড়ো নিজের ভবিষ্যৎ।
+    </p>
+
+    <a href="#courses">
+      <button class="btn">শেখা শুরু করো →</button>
+    </a>
+  </div>
+
+  <img
+  src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900"
+  alt="Books and education">
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+  <div class="stat">
+    <h2>০৬+</h2>
+    <p>শিক্ষামূলক বিষয়</p>
+  </div>
+
+  <div class="stat">
+    <h2>১০০+</h2>
+    <p>শেখার রিসোর্স</p>
+  </div>
+
+  <div class="stat">
+    <h2>২৪/৭</h2>
+    <p>শেখার সুযোগ</p>
+  </div>
+
+  <div class="stat">
+    <h2>∞</h2>
+    <p>জ্ঞান অর্জনের সম্ভাবনা</p>
+  </div>
+</div>
+
+<!-- COURSES -->
+
+<section id="courses">
+  <div class="section-title">
+    <h2>আমাদের বিষয়সমূহ</h2>
+    <p>নিজের পছন্দের বিষয় বেছে নিয়ে শেখা শুরু করো।</p>
+  </div>
+
+  <div class="courses">
+
+    <div class="course">
+      <div class="emoji">📖</div>
+      <h3>বাংলা</h3>
+      <p>বাংলা সাহিত্য, ব্যাকরণ, কবিতা ও গল্প সম্পর্কে জানো।</p>
+      <button onclick="showInfo('বাংলা')">বিস্তারিত দেখো →</button>
+    </div>
+
+    <div class="course">
+      <div class="emoji">🌍</div>
+      <h3>ইংরেজি</h3>
+      <p>Grammar, Vocabulary, Writing ও Speaking দক্ষতা বাড়াও।</p>
+      <button onclick="showInfo('ইংরেজি')">বিস্তারিত দেখো →</button>
+    </div>
+
+    <div class="course">
+      <div class="emoji">💻</div>
+      <h3>ICT</h3>
+      <p>কম্পিউটার, প্রোগ্রামিং ও ডিজিটাল প্রযুক্তি শেখো।</p>
+      <button onclick="showInfo('ICT')">বিস্তারিত দেখো →</button>
+    </div>
+
+    <div class="course">
+      <div class="emoji">📊</div>
+      <h3>অর্থনীতি</h3>
+      <p>চাহিদা, যোগান, বাজার ও অর্থনৈতিক ধারণা অর্জন করো।</p>
+      <button onclick="showInfo('অর্থনীতি')">বিস্তারিত দেখো →</button>
+    </div>
+
+    <div class="course">
+      <div class="emoji">⚖️</div>
+      <h3>পৌরনীতি</h3>
+      <p>রাষ্ট্র, সংবিধান, নাগরিক অধিকার ও রাজনীতি জানো।</p>
+      <button onclick="showInfo('পৌরনীতি')">বিস্তারিত দেখো →</button>
+    </div>
+
+    <div class="course">
+      <div class="emoji">🏛️</div>
+      <h3>সমাজবিজ্ঞান</h3>
+      <p>সমাজ, সংস্কৃতি, সামাজিক প্রতিষ্ঠান ও মানবজীবন জানো।</p>
+      <button onclick="showInfo('সমাজবিজ্ঞান')">বিস্তারিত দেখো →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+
+<section id="features">
+  <div class="section-title">
+    <h2>আমাদের বিশেষ সুবিধা</h2>
+    <p>একটি প্ল্যাটফর্মেই শিক্ষার প্রয়োজনীয় উপকরণ।</p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div>📝</div>
+      <h3>অনলাইন পরীক্ষা</h3>
+      <p>নিজের জ্ঞান যাচাই করো ছোট ছোট কুইজের মাধ্যমে।</p>
+    </div>
+
+    <div class="feature">
+      <div>📅</div>
+      <h3>স্টাডি প্ল্যানার</h3>
+      <p>নিজের পড়াশোনার সময়সূচি তৈরি করো।</p>
+    </div>
+
+    <div class="feature">
+      <div>📚</div>
+      <h3>ডিজিটাল লাইব্রেরি</h3>
+      <p>বিভিন্ন শিক্ষামূলক বই ও নোট সংগ্রহ করো।</p>
+    </div>
+
+    <div class="feature">
+      <div>🎯</div>
+      <h3>দৈনিক লক্ষ্য</h3>
+      <p>প্রতিদিনের পড়াশোনার লক্ষ্য নির্ধারণ করো।</p>
+    </div>
+
+    <div class="feature">
+      <div>🌐</div>
+      <h3>ডিজিটাল শিক্ষা</h3>
+      <p>প্রযুক্তির মাধ্যমে নতুন কিছু শেখার সুযোগ।</p>
+    </div>
+
+    <div class="feature">
+      <div>💡</div>
+      <h3>সৃজনশীল শিক্ষা</h3>
+      <p>নিজের চিন্তাশক্তি ও সৃজনশীলতা বৃদ্ধি করো।</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIZ -->
+
+<section id="quiz">
+  <div class="section-title">
+    <h2>নিজেকে যাচাই করো</h2>
+    <p>একটি ছোট ICT কুইজ দিয়ে শুরু করা যাক!</p>
+  </div>
+
+  <div class="quiz-box">
+    <h3>প্রশ্ন: HTML এর পূর্ণরূপ কী?</h3>
+
+    <label class="option">
+      <input type="radio" name="answer" value="wrong">
+      High Text Machine Language
+    </label>
+
+    <label class="option">
+      <input type="radio" name="answer" value="correct">
+      HyperText Markup Language
+    </label>
+
+    <label class="option">
+      <input type="radio" name="answer" value="wrong">
+      Hyper Transfer Main Language
+    </label>
+
+    <button class="btn" onclick="checkQuiz()">উত্তর জমা দাও</button>
+
+    <div id="result"></div>
+  </div>
+</section>
+
+<!-- LIBRARY -->
+
+<section id="library">
+  <div class="section-title">
+    <h2>ডিজিটাল লাইব্রেরি</h2>
+    <p>জ্ঞান অর্জনের জন্য দরকারি কিছু শিক্ষামূলক রিসোর্স।</p>
+  </div>
+
+  <div class="library">
+
+    <div class="book">
+      <h3>📘 NCTB পাঠ্যবই</h3>
+      <p>জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ডের বই।</p>
+      <a href="https://nctb.gov.bd/" target="_blank">ওয়েবসাইট দেখো →</a>
+    </div>
+
+    <div class="book">
+      <h3>🎓 মুক্তপাঠ</h3>
+      <p>বিভিন্ন বিষয়ে অনলাইন প্রশিক্ষণ ও কোর্স।</p>
+      <a href="https://muktopaath.gov.bd/" target="_blank">শেখা শুরু করো →</a>
+    </div>
+
+    <div class="book">
+      <h3>🌐 Khan Academy</h3>
+      <p>বিভিন্ন বিষয়ে বিনামূল্যে শিক্ষামূলক পাঠ।</p>
+      <a href="https://www.khanacademy.org/" target="_blank">Explore →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="contact">
+    <h2>শিক্ষাই শক্তি, জ্ঞানই ভবিষ্যৎ</h2>
+    <p>আজকের শেখা তোমার আগামী দিনের সাফল্য।</p>
+    <a href="#home">
+      <button style="background:white;color:#3867e8;padding:12px 25px;border-radius:8px;font-weight:bold;">
+        আবার শুরুতে যাও ↑
+      </button>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 EduSphere | Smart Learning Platform</p>
+  <p>Designed for Educational Project</p>
+</footer>
+
+<script>
+
+function toggleMenu() {
+  document.getElementById("navbar").classList.toggle("show");
+}
+
+function showInfo(subject) {
+  alert(subject + " বিষয়ের বিস্তারিত কনটেন্ট শীঘ্রই যুক্ত করা হবে!");
+}
+
+function checkQuiz() {
+  const selected = document.querySelector(
+    'input[name="answer"]:checked'
+  );
+
+  const result = document.getElementById("result");
+
+  if(!selected) {
+    result.innerHTML = "⚠️ প্রথমে একটি উত্তর নির্বাচন করো।";
+    return;
+  }
+
+  if(selected.value === "correct") {
+    result.innerHTML = "🎉 অভিনন্দন! তোমার উত্তর সঠিক।";
+  } else {
+    result.innerHTML = "❌ উত্তরটি সঠিক নয়। আবার চেষ্টা করো!";
+  }
+}
+
+</script>
+
+</body>
+</html>
